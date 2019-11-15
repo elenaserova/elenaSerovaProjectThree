@@ -1,0 +1,23 @@
+@import 'setup';
+@import 'variables';
+@import 'mixins';
+
+.slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.activeSlide {
+    opacity: 1;
+    z-index: 2;
+}
+.quizContainer {
+    position: relative;
+    height: 300px;
+    margin-top: 150px;
+}
