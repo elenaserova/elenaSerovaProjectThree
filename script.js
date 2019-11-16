@@ -63,7 +63,9 @@ quizApp.display = []
 
 //Selectors
 quizApp.quizContainer = document.querySelector(".quizContainer");
+quizApp.scoreContainer = document.querySelector(".scoreContainer");
 quizApp.nextButton = document.getElementById('next');
+quizApp.startButton = document.getElementById('start');
 quizApp.submitButton = document.getElementById('submit');
 quizApp.againButton = document.getElementById('again');
 
@@ -94,29 +96,47 @@ quizApp.generateQuiz = function() {
     quizApp.quizContainer = document.querySelector(".quizContainer");
     quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentSlide];
 
-    
+    quizApp.nextButtons = function () {
+        quizApp.nextButton.style.display = 'inline-block';
+        quizApp.startButton.style.display = 'none';
+
+
+    }
+    quizApp.nextButtons();
     
 }
 
+
+
 quizApp.finalScore = function() {
-    console.log(quizApp.quizContainer);
+    
     const answerContainers = quizApp.quizContainer.querySelectorAll(".answers");
     
-    console.log(answerContainers);
+    
     let correctAnswers = 0;
     const testList = quizApp.questions;
     testList.forEach(function(currentQuestion, questionNumber) {
-        console.log(questionNumber);
+        
         let answerContainer = answerContainers[questionNumber];
         let selected = `input[name=question${questionNumber}]:checked`;
-        console.log(answerContainer, selected);
+        
         let userAnswer = (answerContainer.querySelector(selected)).value;
         if (userAnswer === currentQuestion.correctAnswer) {
             correctAnswers++;
 
         }
-        $('.scoreContainer').text(`Your score is ${correctAnswers} out of ${quizApp.questions.length}`);
-        // $('.scoreContainer').push(`<button class="again" id="again">Try again</button>`);
+        let totalScore = (correctAnswers / quizApp.questions.length) * 100;
+        console.log (totalScore);
+        $('.scoreContainer').text(`Your score is ${totalScore}%`);
+        $('.scoreContainer').append('<p><button class="again" id="again">Try again</button></p>');
+        $('.again').on("click", function () {
+            $('input').empty();
+            $('.scoreContainer').empty();
+            quizApp.quizContainer.style.display = 'inline-block';
+            quizApp.generateQuiz();
+        });
+
+        
 
 
     });
@@ -125,8 +145,11 @@ quizApp.finalScore = function() {
 
 quizApp.showNextSlide = function(){
     quizApp.currentSlide = quizApp.currentSlide +1;
-    // quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentSlide] i need to hide each previous Q
     $(quizApp.quizContainer).append(quizApp.display[quizApp.currentSlide]);
+    
+    // i need to hide each previous Q
+    // $(quizApp.quizContainer).hide(quizApp.display[quizApp.previousSlide]);
+
     if (quizApp.currentSlide === quizApp.display.length - 1) {
         quizApp.nextButton.style.display = 'none';
         quizApp.submitButton.style.display = 'inline-block';
@@ -135,7 +158,7 @@ quizApp.showNextSlide = function(){
     else {
         quizApp.nextButton.style.display = 'inline-block';
         quizApp.submitButton.style.display = 'none';
-        quizApp.againButton.style.display = 'none';
+        
     }
 
     }
@@ -143,9 +166,13 @@ quizApp.showNextSlide = function(){
 
 init = () => {
     $('.start').on("click", quizApp.generateQuiz);
-    $('.submit').on("click", quizApp.finalScore);
+    $('.submit').on("click", function(){
+        quizApp.quizContainer.style.display = 'none';
+        quizApp.scoreContainer.style.display = 'inline-block';
+        quizApp.finalScore();
+    });
     $('.next').on("click", quizApp.showNextSlide);
-    $('.again').on("click", quizApp.generateQuiz);
+    // $('.again').on("click", quizApp.generateQuiz);
 }
 
 $(document).ready(function () {
