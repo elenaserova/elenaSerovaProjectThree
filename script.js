@@ -65,6 +65,7 @@ quizApp.display = []
 quizApp.quizContainer = document.querySelector(".quizContainer");
 quizApp.nextButton = document.getElementById('next');
 quizApp.submitButton = document.getElementById('submit');
+quizApp.againButton = document.getElementById('again');
 
 quizApp.displaySlide = function(slides, currentSlide) {
     quizContainer.innerHTML = slides[currentSlide];
@@ -89,86 +90,62 @@ quizApp.generateQuiz = function() {
                     </div>`
         );
     })
-    // console.log("display", display)
-    // quizContainer.innerHTML = display.join("");
-    // const slides = document.querySelectorAll(".slide");
+    
     quizApp.quizContainer = document.querySelector(".quizContainer");
     quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentSlide];
-    // console.log("slides", slides);
-    // displaySlide(slides, currentSlide);
+
+    
+    
 }
 
-
-
-// let quizApp.numCorrect = 0;
-// function finalScore() {
-//     const answersContainer = quizContainer.querySelectorAll('.answers');
+quizApp.finalScore = function() {
+    console.log(quizApp.quizContainer);
+    const answerContainers = quizApp.quizContainer.querySelectorAll(".answers");
     
-//     quizApp.questions.forEach((currentQuestion, questionNumber) => {
-//         let answerContainer = answersContainer[questionNumber];
-//         const selected = 'input[name=question' + questionNumber + ']:checked';
-//         const userAnswer = (answerContainer.querySelector(selected) || {}).value;
-//         if (userAnswer === currentQuestion.correctAnswer) {
-//             quizApp.correctAnswers++;
+    console.log(answerContainers);
+    let correctAnswers = 0;
+    const testList = quizApp.questions;
+    testList.forEach(function(currentQuestion, questionNumber) {
+        console.log(questionNumber);
+        let answerContainer = answerContainers[questionNumber];
+        let selected = `input[name=question${questionNumber}]:checked`;
+        console.log(answerContainer, selected);
+        let userAnswer = (answerContainer.querySelector(selected)).value;
+        if (userAnswer === currentQuestion.correctAnswer) {
+            correctAnswers++;
 
-//         }
-//         $('.scoreContainer').text(`Your score is ${quizApp.numCorrect} out of ${quizApp.questions.length}`);
-        
-    
-
-//     });
-// }
+        }
+        $('.scoreContainer').text(`Your score is ${correctAnswers} out of ${quizApp.questions.length}`);
+        // $('.scoreContainer').push(`<button class="again" id="again">Try again</button>`);
 
 
-// const slides = document.querySelectorAll(".slide");
-// console.log(slides);
-// let currentSlide = 0;
-
-// function showSlide(n) {
-    
-//     slides[currentSlide].classList.remove('activeSlide');
-//     slides[n].classList.add('activeSlide');
-//     currentSlide = n;
-//     if (currentSlide === slides.length - 1) {
-//         nextButton.style.display = 'none';
-//         submitButton.style.display = 'inline-block';
-//     }
-//     else {
-//         nextButton.style.display = 'inline-block';
-//         submitButton.style.display = 'none';
-//     }
-// }
-
+    });
+}
 
 
 quizApp.showNextSlide = function(){
     quizApp.currentSlide = quizApp.currentSlide +1;
-    quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentSlide]
-    if (quizApp.currentSlide === quizApp.display.length) {
+    // quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentSlide] i need to hide each previous Q
+    $(quizApp.quizContainer).append(quizApp.display[quizApp.currentSlide]);
+    if (quizApp.currentSlide === quizApp.display.length - 1) {
         quizApp.nextButton.style.display = 'none';
         quizApp.submitButton.style.display = 'inline-block';
     }
+    
     else {
         quizApp.nextButton.style.display = 'inline-block';
         quizApp.submitButton.style.display = 'none';
+        quizApp.againButton.style.display = 'none';
     }
 
     }
-
-// const quizContainer = document.getElementById("quiz");
-// const scoreContainer = document.getElementById("score");
-// const submitButton = document.getElementById("submit");
-
-
-
-// const nextButton = document.getElementById("next");
-// showSlide(0);
 
 
 init = () => {
     $('.start').on("click", quizApp.generateQuiz);
-    // $('.submit').on("click", finalScore);
+    $('.submit').on("click", quizApp.finalScore);
     $('.next').on("click", quizApp.showNextSlide);
+    $('.again').on("click", quizApp.generateQuiz);
 }
 
 $(document).ready(function () {
@@ -176,13 +153,6 @@ $(document).ready(function () {
 })
 
 
-
-// $(".next").click(function () {
-//     $(".slide").animate({
-//         opacity: 0
-//     }, 50, function () {
-//     });
-// });
 
 
 

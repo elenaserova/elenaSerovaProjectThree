@@ -4,181 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Quiz</title>
 </head>
 <body>
     <h1>Test Your HTML & CSS Knowledge</h1>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, suscipit inventore. Maxime id itaque temporibus quae nisi harum. Tempore reprehenderit totam ad obcaecati laborum sapiente! Dolor saepe ea recusandae aut!</p>
     <button id="start" class="start">Start</button>
-    <div id="quizContainer" class="quizContainer">
-        <div id="quiz" class="quiz"></div>
-    </div>
+    <div id="quizContainer" class="quizContainer"></div>
     <button id="next" class="next">Next Question</button>
     <button id="submit" class="submit">Submit Quiz</button>
     <div id="scoreContainer" class="scoreContainer"></div>
+    <button class="again" id="again">Try again</button>
+    
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="script.js"></script>
-<!-- <script>
-        // const quizApp = {};
-        
-        const questions = [
-            {
-                question: "Question1?",
-                answers: {
-                    a: "Answer1",
-                    b: "Answer2",
-                    c: "Answer3",
-                    d: "Answer4"
 
-                },
-                correctAnswer: "b"
-            },
-            {
-                question: "Question2?",
-                answers: {
-                    a: "Answer1",
-                    b: "Answer2",
-                    c: "Answer3",
-                    d: "Answer4"
-
-                },
-                correctAnswer: "d"
-            },
-            {
-                question: "Question3?",
-                answers: {
-                    a: "Answer1",
-                    b: "Answer2",
-                    c: "Answer3",
-                    d: "Answer4"
-
-                },
-                correctAnswer: "a"
-            },
-            {
-                question: "Question4?",
-                answers: {
-                    a: "Answer1",
-                    b: "Answer2",
-                    c: "Answer3",
-                    d: "Answer4"
-
-                },
-                correctAnswer: "c"
-            },
-            {
-                question: "Question5?",
-                answers: {
-                    a: "Answer1",
-                    b: "Answer2",
-                    c: "Answer3",
-                    d: "Answer4"
-
-                },
-                correctAnswer: "b"
-            }
-            ];
-            
-            function generateQuiz() {
-                const display = [];
-                
-                questions.forEach((currentQuestion, questionNumber) => {
-                const answers = [];
-                for(variant in currentQuestion.answers) {
-                    answers.push(
-                        `<label>
-                        <input type="radio" name="question${questionNumber}" value="${variant}">
-                        ${variant} :
-                        ${currentQuestion.answers[variant]}
-                        </label>`
-                    );
-                }
-                display.push(
-                    `<div class="slide"><div class="question"> ${currentQuestion.question} 
-                    </div>
-                    <div class="answers"> ${answers.join("")} </div>
-                    </div>`
-                );
-                });
-            
-            quizContainer.innerHTML = display.join("");
-
-            }
-            function finalScore() {
-                    const answersContainer = quizContainer.querySelectAll('.answers');
-                    let correctAnswers = 0;
-                    questions.forEach((currentQuestion, questionNumber) => {
-                        const answersContainer = answersContainers[questionNumber];
-                        const selected = 'input[name=question' + questionNumber + ']:checked';
-                        const userAnswer = (answerContainer.querySelector(selected) || {}).value;
-                        if (userAnswer === currentQuestion.correctAnswer) {
-                            correctAnswers++;
-
-                        }
-                    
-                    });
-            }
-                    scoreContainer.innerHTML = `${correctAnswers} + ' out of ' + ${questions.length}`;
-            
-
-            function showSlide(n) {
-                    slides[currentSlide].classList.remove('activeSlide');
-                    slides[n].classList.add('activeSlide');
-                    currentSlide = n;
-                    if (currentSlide === slides.length - 1) {
-                        nextButton.style.display = 'none';
-                        submitButton.style.display = 'inline-block';
-                    }
-                    else {
-                        nextButton.style.display = 'inline-block';
-                        submitButton.style.display = 'none';
-                    }
-                }
-                function showNextSlide() {
-                        showSlide(currentSlide + 1);
-                    }
-                    const quizContainer = document.getElementById("quiz");
-                    const scoreContainer = document.getElementById("score");
-                    const submitButton = document.getElementById("submit");
-
-                
-
-                    const nextButton = document.getElementById("next");
-                    const slides = document.querySelectorAll(".slide");
-                    let currentSlide = 0;
-                showSlide(0);
-                    
-                    // $('.start').on("click", generateQuiz);
-                    // $('.submit').on("click", finalScore);
-                    // $('.next').on("click", showNextSlide);
-
-
-                init = () => {
-                    $('.start').on("click", generateQuiz);
-                    $('.submit').on("click", finalScore);
-                    $('.next').on("click", showNextSlide);
-                }
-
-                $(document).ready(function () {
-                        init();
-                    })
-                
-
-                
-
-
-
-        
-
-        //     1.	User clicks “Start the quiz” button, then Q1 appears
-        //     2.	display question 1 and the set of choices to that question
-        //     3.	user should make a choice(click the button)
-        //     4.	if the choice is correct( === correct answer), then add  1 point to the finalScore, else add 0 to the finalPoint
-        //     5.	once the choice is made(button clicked), current Q disappears(hide method)
-        //     6.	if current Question < questionArray.length then move to the next question and set of choices, else display section with total score in %
-        //         7.	offer to start again(button)
-
-
-</script>   -->
 </body>
 </html>

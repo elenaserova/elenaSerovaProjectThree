@@ -235,24 +235,16 @@ html {
   overflow: hidden;
 }
 
-.slide {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-
-.activeSlide {
-  opacity: 1;
-  z-index: 2;
-}
-
 .quizContainer {
-  position: relative;
-  height: 300px;
-  margin-top: 150px;
+  padding: 100px 30px;
+}
+
+.question {
+  font-size: 40px;
+  padding: 20px 0px;
+}
+
+.answers {
+  font-size: 24px;
+  padding: 10px 20px;
 }

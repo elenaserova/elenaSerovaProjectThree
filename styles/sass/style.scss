@@ -2,22 +2,22 @@
 @import 'variables';
 @import 'mixins';
 
-.slide {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s;
+// #next,
+// #submit {
+//     display:none;
+// }
+
+.quizContainer {
+    padding: 100px 30px;
+}
+.question{
+    font-size: 40px;
+    padding: 20px 0px;
 }
 
-.activeSlide {
-    opacity: 1;
-    z-index: 2;
+.answers {
+    font-size: 24px;
+    padding: 10px 20px;
 }
-.quizContainer {
-    position: relative;
-    height: 300px;
-    margin-top: 150px;
-}
+
+
