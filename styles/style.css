@@ -238,7 +238,6 @@ html {
 html {
   font-size: 62.5%;
   font-family: "Ubuntu", sans-serif;
-  background-color: #f7f7f7;
 }
 
 h1,
@@ -252,6 +251,11 @@ nav,
 a {
   padding: 0;
   margin: 0;
+}
+
+body {
+  background-color: #010101;
+  height: 100vh;
 }
 
 a {
@@ -285,7 +289,6 @@ img {
 
 .slide {
   padding: 10px 30px;
-  background: #5c636e;
   margin-bottom: 30px;
 }
 
@@ -307,21 +310,62 @@ img {
       flex-wrap: wrap;
 }
 
-label {
+@media only screen and (max-width: 830px) {
+  .answers {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.answers div {
   padding: 20px 5px;
   margin: 10px 10px;
   width: calc(50% - 20px);
   border: 1px solid black;
   background-color: #e4f2f0;
+  border: 2px solid #f8b500;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 830px) {
+  .answers div {
+    width: 100%;
+  }
+}
+
+.selected {
+  background-color: red;
 }
 
 h1 {
-  padding: 80px 0px;
+  padding: 80px 0px 50px 0px;
   font-size: 70px;
   font-size: 7rem;
-  color: #393e46;
+  color: white;
   font-family: "Kreon", serif;
   text-align: center;
+}
+
+@media (min-width: 1600px) {
+  h1 {
+    padding-top: 200px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  h1 {
+    font-size: 60px;
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 50px;
+    font-size: 5rem;
+  }
 }
 
 .rules {
@@ -329,12 +373,20 @@ h1 {
   font-size: 3rem;
   line-height: 1.5;
   padding-bottom: 70px;
+  color: white;
+}
+
+@media only screen and (max-width: 650px) {
+  .rules {
+    font-size: 25px;
+    font-size: 2.5rem;
+  }
 }
 
 button {
   background-color: #f8b500;
   border-radius: 10px;
-  color: #393e46;
+  color: #010101;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
@@ -342,10 +394,19 @@ button {
   font-size: 40px;
   font-size: 4rem;
   font-family: "Kreon", serif;
-  line-height: 24px;
+  line-height: 35px;
   letter-spacing: 1.2px;
   font-weight: bold;
   cursor: pointer;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+button:hover,
+button:focus {
+  background-color: #84f800;
 }
 
 .special {
@@ -376,9 +437,36 @@ button {
   text-align: center;
   font-size: 50px;
   font-size: 5rem;
-  padding: 10px 0px;
+  padding: 30px 0px;
+  color: #f0ece2;
+}
+
+@media only screen and (max-width: 800px) {
+  .scoreContainer p {
+    font-size: 40px;
+    font-size: 4rem;
+    padding: 20px 0px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .scoreContainer {
+    font-size: 30px;
+    font-size: 3rem;
+  }
 }
 
 .totalScore {
   color: #f8b500;
+}
+
+.swal-text,
+.swal-button--confirm {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+.swal-button--confirm {
+  background: #f8b500;
+  position: relative;
 }

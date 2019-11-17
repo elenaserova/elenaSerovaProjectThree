@@ -5,7 +5,6 @@
 html {
   font-size: 62.5%;
   font-family: $baseFont;
-  background-color: #f7f7f7;
 }
 
 h1,
@@ -19,6 +18,11 @@ nav,
 a {
   padding: 0;
   margin: 0;
+}
+
+body {
+  background-color: $secondaryColor;
+  height: 100vh;
 }
 
 a {
@@ -49,7 +53,6 @@ img {
 
 .slide {
   padding: 10px 30px;
-  background: $secondaryColor;
   margin-bottom: 30px;
 }
 
@@ -66,44 +69,77 @@ img {
   padding: 10px 20px;
   display: flex;
   flex-wrap: wrap;
+  @include media(830px) {
+    flex-direction: column;
+  }
+
+  div {
+    padding: 20px 5px;
+    margin: 10px 10px;
+    width: calc(50% - 20px);
+    @include media(830px) {
+      width: 100%;
+    }
+    border: 1px solid black;
+    background-color: $white;
+    border: 2px solid $accentColor;
+    border-radius: 10px;
+  }
 }
 
-label {
-  padding: 20px 5px;
-  margin: 10px 10px;
-  width: calc(50% - 20px);
-  border: 1px solid black;
-  background-color: $white;
+.selected {
+  background-color: red;
 }
 
 h1 {
-  padding: 80px 0px;
+  padding: 80px 0px 50px 0px;
   @include fontSize(70);
-  color: $primaryColor;
+  color: white;
   font-family: $accentFont;
   text-align: center;
+  @media (min-width: 1600px) {
+    padding-top: 200px;
+  }
+  @include media(650px) {
+    @include fontSize(60);
+  }
+  @include media(480px) {
+    @include fontSize(50);
+  }
 }
 
 .rules {
   @include fontSize(30);
   line-height: 1.5;
   padding-bottom: 70px;
+  color: white;
+  @include media(650px) {
+    @include fontSize(25);
+  }
 }
 
 button {
   background-color: $accentColor;
   border-radius: 10px;
-  color: $primaryColor;
+  color: $secondaryColor;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   @include fontSize(40);
   font-family: $accentFont;
-  line-height: 24px;
+  line-height: 35px;
   letter-spacing: 1.2px;
   font-weight: bold;
   cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+button:hover,
+button:focus {
+  background-color: #84f800;
 }
 
 .special {
@@ -121,10 +157,27 @@ button {
   p {
     text-align: center;
     @include fontSize(50);
-    padding: 10px 0px;
+    padding: 30px 0px;
+    color: $primaryColor;
+    @include media(800px) {
+      @include fontSize(40);
+      padding: 20px 0px;
+    }
+  }
+  @include media(600px) {
+    @include fontSize(30);
   }
 }
 
 .totalScore {
   color: $accentColor;
+}
+
+.swal-text,
+.swal-button--confirm {
+  @include fontSize(24);
+}
+.swal-button--confirm {
+  background: $accentColor;
+  position: relative;
 }

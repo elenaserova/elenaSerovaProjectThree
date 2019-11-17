@@ -73,13 +73,10 @@ quizApp.generateQuiz = function() {
     const answers = [];
     for (variant in currentQuestion.answers) {
       answers.push(
-        `<label>
-                    <input type="radio" name="question${questionNumber}" value="${variant}" class="radio">
-      
-                    ${currentQuestion.answers[variant]}
-                </label>`
+        `<div class="qaContainer"><input type="radio" name="question${questionNumber}" value="${variant}" class="radio"><label> ${currentQuestion.answers[variant]}</label></div>`
       );
     }
+
     quizApp.display.push(
       `<div class="slide"><div class="question"> ${currentQuestion.question} 
             </div>
@@ -87,6 +84,12 @@ quizApp.generateQuiz = function() {
                     </div>`
     );
   });
+
+  // document.querySelector(".quizContainer").addEventListener("click", e => {
+  //   const grandChild = e.target.closest(".qaContainer");
+
+  //   grandChild.classList.add("selected");
+  // });
 
   quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentQuestion];
   quizApp.nextButton.style.display = "inline-block";
@@ -102,8 +105,9 @@ quizApp.checkAnswer = function() {
     }
   }
   if (radioValue == null) {
-    alert("Please select an answer!");
+    swal("Please select an answer!");
     quizApp.currentQuestion = quizApp.currentQuestion - 1;
+    return;
   }
 
   if (radioValue === quizApp.questions[quizApp.currentQuestion].correctAnswer) {
