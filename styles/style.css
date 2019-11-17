@@ -279,9 +279,13 @@ img {
   display: none;
 }
 
+.quizContainer {
+  width: 100%;
+}
+
 .slide {
   padding: 10px 30px;
-  background: #f8b500;
+  background: #5c636e;
   margin-bottom: 30px;
 }
 
@@ -289,6 +293,8 @@ img {
   font-size: 30px;
   padding: 20px 0px;
   font-weight: bold;
+  text-align: center;
+  color: white;
 }
 
 .answers {
@@ -304,7 +310,7 @@ img {
 label {
   padding: 20px 5px;
   margin: 10px 10px;
-  width: calc(50% - 40px);
+  width: calc(50% - 20px);
   border: 1px solid black;
   background-color: #e4f2f0;
 }
@@ -315,9 +321,10 @@ h1 {
   font-size: 7rem;
   color: #393e46;
   font-family: "Kreon", serif;
+  text-align: center;
 }
 
-p {
+.rules {
   font-size: 30px;
   font-size: 3rem;
   line-height: 1.5;
@@ -326,9 +333,8 @@ p {
 
 button {
   background-color: #f8b500;
-  border: 2px solid #393e46;
   border-radius: 10px;
-  color: white;
+  color: #393e46;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
@@ -337,7 +343,8 @@ button {
   font-size: 4rem;
   font-family: "Kreon", serif;
   line-height: 24px;
-  letter-spacing: 1.7px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -349,4 +356,29 @@ button {
   font-size: 50px;
   font-size: 5rem;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.scoreContainer p {
+  text-align: center;
+  font-size: 50px;
+  font-size: 5rem;
+  padding: 10px 0px;
+}
+
+.totalScore {
+  color: #f8b500;
 }

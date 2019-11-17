@@ -43,9 +43,13 @@ img {
   display: none;
 }
 
+.quizContainer {
+  width: 100%;
+}
+
 .slide {
   padding: 10px 30px;
-  background: $accentColor;
+  background: $secondaryColor;
   margin-bottom: 30px;
 }
 
@@ -53,6 +57,8 @@ img {
   font-size: 30px;
   padding: 20px 0px;
   font-weight: bold;
+  text-align: center;
+  color: white;
 }
 
 .answers {
@@ -65,7 +71,7 @@ img {
 label {
   padding: 20px 5px;
   margin: 10px 10px;
-  width: calc(50% - 40px);
+  width: calc(50% - 20px);
   border: 1px solid black;
   background-color: $white;
 }
@@ -75,9 +81,10 @@ h1 {
   @include fontSize(70);
   color: $primaryColor;
   font-family: $accentFont;
+  text-align: center;
 }
 
-p {
+.rules {
   @include fontSize(30);
   line-height: 1.5;
   padding-bottom: 70px;
@@ -85,9 +92,8 @@ p {
 
 button {
   background-color: $accentColor;
-  border: 2px solid $primaryColor;
   border-radius: 10px;
-  color: white;
+  color: $primaryColor;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
@@ -95,7 +101,8 @@ button {
   @include fontSize(40);
   font-family: $accentFont;
   line-height: 24px;
-  letter-spacing: 1.7px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -106,4 +113,18 @@ button {
 .scoreContainer {
   @include fontSize(50);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  p {
+    text-align: center;
+    @include fontSize(50);
+    padding: 10px 0px;
+  }
+}
+
+.totalScore {
+  color: $accentColor;
 }
