@@ -104,8 +104,6 @@ quizApp.checkAnswer = function() {
   if (radioValue == null) {
     alert("Please select an answer!");
     quizApp.currentQuestion = quizApp.currentQuestion - 1;
-  } else {
-    quizApp.currentQuestion = quizApp.currentQuestion;
   }
 
   if (radioValue === quizApp.questions[quizApp.currentQuestion].correctAnswer) {
@@ -138,9 +136,15 @@ quizApp.finalScore = function() {
     );
   }
 
-  if (totalScore < 40) {
+  if (totalScore === 20) {
     $(".scoreContainer").append(
       `<p class="score">Your score is <span class="totalScore">${totalScore}</span>%</p><p>Not bad!🤓</p><p><button class="again" id="again">Try again</button></p>`
+    );
+  }
+
+  if (totalScore === 40) {
+    $(".scoreContainer").append(
+      `<p class="score">Your score is <span class="totalScore">${totalScore}</span>%</p><p>Keep working on it, you’re improving!😁</p><p><button class="again" id="again">Try again</button></p>`
     );
   }
 
@@ -150,9 +154,15 @@ quizApp.finalScore = function() {
     );
   }
 
+  if (totalScore === 80) {
+    $(".scoreContainer").append(
+      `<p class="score">Your score is <span class="totalScore">${totalScore}</span>%</p><p>Beautiful! Well done!👏</p><p><button class="again" id="again">Try again</button></p>`
+    );
+  }
+
   if (totalScore === 100) {
     $(".scoreContainer").append(
-      `<p class="score">Your score is <span class="totalScore">${totalScore}</span>%</p><p>You're a rockstar!😎</p><p><button class="again" id="again">Try again</button></p>`
+      `<p class="score">Your score is <span class="totalScore">${totalScore}</span>%</p><p>Super! You're a rockstar!😎</p><p><button class="again" id="again">Try again</button></p>`
     );
   }
 
