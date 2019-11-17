@@ -1,34 +1,109 @@
-@import 'setup';
-@import 'variables';
-@import 'mixins';
+@import "setup";
+@import "variables";
+@import "mixins";
+
+html {
+  font-size: 62.5%;
+  font-family: $baseFont;
+  background-color: #f7f7f7;
+}
+
+h1,
+h2,
+p,
+body,
+header,
+ul,
+section,
+nav,
+a {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  max-width: 1080px;
+  width: 80%;
+  margin: 0 auto;
+  @include media(490px) {
+    width: 90%;
+  }
+}
 
 #next,
 #submit {
-    display:none;
+  display: none;
 }
 
-.quizContainer {
-    padding: 100px 30px;
+.slide {
+  padding: 10px 30px;
+  background: $accentColor;
+  margin-bottom: 30px;
 }
-.question{
-    font-size: 40px;
-    padding: 20px 0px;
+
+.question {
+  font-size: 30px;
+  padding: 20px 0px;
+  font-weight: bold;
 }
 
 .answers {
-    font-size: 24px;
-    padding: 10px 20px;
+  font-size: 24px;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#myProgress {
-  width: 100%;
-  background-color: grey;
+label {
+  padding: 20px 5px;
+  margin: 10px 10px;
+  width: calc(50% - 40px);
+  border: 1px solid black;
+  background-color: $white;
 }
 
-#myBar {
-  width: 1%;
-  height: 30px;
-  background-color: green;
+h1 {
+  padding: 80px 0px;
+  @include fontSize(70);
+  color: $primaryColor;
+  font-family: $accentFont;
 }
 
+p {
+  @include fontSize(30);
+  line-height: 1.5;
+  padding-bottom: 70px;
+}
 
+button {
+  background-color: $accentColor;
+  border: 2px solid $primaryColor;
+  border-radius: 10px;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  @include fontSize(40);
+  font-family: $accentFont;
+  line-height: 24px;
+  letter-spacing: 1.7px;
+  cursor: pointer;
+}
+
+.special {
+  color: $accentColor;
+}
+
+.scoreContainer {
+  @include fontSize(50);
+  margin: 0 auto;
+}

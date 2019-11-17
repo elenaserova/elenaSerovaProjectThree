@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Kreon|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Quiz</title>
-</head>
-<body>
-    <h1>Test Your HTML & CSS Knowledge</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, suscipit inventore. Maxime id itaque temporibus quae nisi harum. Tempore reprehenderit totam ad obcaecati laborum sapiente! Dolor saepe ea recusandae aut!</p>
+  </head>
+  <body class="wrapper">
+    <h1>Test Your <span class="special">HTML & CSS</span> Knowledge</h1>
+    <p class="rules">
+      The test contains 5 questions. You will get 1 point for each correct
+      answer. At the end of the Quiz, your total score will be displayed. If you
+      don't get the full score, you'll have an option to try again.
+    </p>
     <button id="start" class="start">Start</button>
     <div id="quizContainer" class="quizContainer"></div>
     <button id="next" class="next">Next Question</button>
     <button id="submit" class="submit">Submit Quiz</button>
     <div id="scoreContainer" class="scoreContainer"></div>
-    
-    
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="script.js"></script>
-
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
