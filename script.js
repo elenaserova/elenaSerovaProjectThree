@@ -73,7 +73,7 @@ quizApp.generateQuiz = function() {
     const answers = [];
     for (variant in currentQuestion.answers) {
       answers.push(
-        `<div class="qaContainer"><input type="radio" name="question${questionNumber}" value="${variant}" class="radio"><label> ${currentQuestion.answers[variant]}</label></div>`
+        `<div class="qaContainer" tabindex="0"><label for = "question${questionNumber}"><input id = "question${questionNumber}" type="radio" name="question${questionNumber}" value="${variant}" class="radio"/>${currentQuestion.answers[variant]}</label></div>`
       );
     }
 
@@ -85,15 +85,25 @@ quizApp.generateQuiz = function() {
     );
   });
 
-  // document.querySelector(".quizContainer").addEventListener("click", e => {
-  //   const grandChild = e.target.closest(".qaContainer");
-
-  //   grandChild.classList.add("selected");
-  // });
+  let sec = 60;
+  quizApp.time = setInterval(myTimer, 1000);
+  function myTimer() {
+    document.getElementById("timer").innerHTML =
+      "⏰ Time left: " + sec + " sec";
+    sec--;
+    if (sec == -1) {
+      clearInterval(quizApp.time);
+      swal("Time out!! :(");
+      quizApp.nextButton.style.display = "none";
+      quizApp.quizContainer.style.display = "none";
+      quizApp.finalScore();
+    }
+  }
 
   quizApp.quizContainer.innerHTML = quizApp.display[quizApp.currentQuestion];
   quizApp.nextButton.style.display = "inline-block";
   quizApp.startButton.style.display = "none";
+  myTimer();
 };
 
 quizApp.checkAnswer = function() {
@@ -132,6 +142,7 @@ quizApp.showNextQuestion = function() {
 };
 
 quizApp.finalScore = function() {
+  document.getElementById("timer").style.display = "none";
   let totalScore = (quizApp.correctAnswers / quizApp.questions.length) * 100;
 
   if (totalScore === 0) {
@@ -177,12 +188,13 @@ quizApp.finalScore = function() {
     quizApp.quizContainer.style.display = "inline-block";
     quizApp.questions.sort(() => Math.random() - 0.5);
     quizApp.generateQuiz();
+    document.getElementById("timer").style.display = "inline-block";
   });
 };
 
 quizApp.submit = function() {
+  clearInterval(quizApp.time);
   quizApp.checkAnswer();
-
   quizApp.quizContainer.style.display = "none";
   quizApp.scoreContainer.style.display = "inline-block";
   quizApp.submitButton.style.display = "none";

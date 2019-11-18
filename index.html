@@ -9,20 +9,27 @@
       href="https://fonts.googleapis.com/css?family=Kreon|Ubuntu&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
 
     <link rel="stylesheet" href="styles/style.css" />
-    <title>Quiz</title>
+    <title>HTML&CSS Quiz</title>
   </head>
   <body class="wrapper">
-    <h1>Test Your <span class="special">HTML & CSS</span> Knowledge</h1>
+    <h1 class="animated bounceInDown slow">
+      Test Your <span class="special">HTML & CSS</span> Knowledge
+    </h1>
     <p class="rules">
-      The test contains 5 questions. You will get 1 point for each correct
-      answer. At the end of the Quiz, your total score will be displayed. If you
-      are not happy with the result, you'll have an option to try again. Good
-      luck!⚡️
+      The test contains 5 questions. You will be given 1 minute to complete the
+      test. Each correct answer will earn you 1 point. At the end of the Quiz,
+      your total score will be displayed. If you are not happy with the result,
+      you'll have an option to try again. Good luck!⚡️
     </p>
 
     <button id="start" class="start">Start</button>
+    <p><span id="timer"></span></p>
     <div id="quizContainer" class="quizContainer"></div>
     <button id="next" class="next">Next Question</button>
     <button id="submit" class="submit">Submit Quiz</button>

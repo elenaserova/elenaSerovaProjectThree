@@ -77,6 +77,9 @@ img {
     padding: 20px 5px;
     margin: 10px 10px;
     width: calc(50% - 20px);
+    &:focus-within {
+      background-color: lightgreen;
+    }
     @include media(830px) {
       width: 100%;
     }
@@ -84,11 +87,11 @@ img {
     background-color: $white;
     border: 2px solid $accentColor;
     border-radius: 10px;
-  }
-}
 
-.selected {
-  background-color: red;
+    input {
+      opacity: 0;
+    }
+  }
 }
 
 h1 {
@@ -132,7 +135,7 @@ button {
   letter-spacing: 1.2px;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translate(-50%);
 }
@@ -144,6 +147,13 @@ button:focus {
 
 .special {
   color: $accentColor;
+}
+
+#timer {
+  @include fontSize(24);
+  color: $primaryColor;
+  position: relative;
+  margin-left: 40%;
 }
 
 .scoreContainer {
@@ -171,6 +181,12 @@ button:focus {
 
 .totalScore {
   color: $accentColor;
+}
+
+.again {
+  position: relative;
+  left: 0%;
+  transform: translate(0%);
 }
 
 .swal-text,
