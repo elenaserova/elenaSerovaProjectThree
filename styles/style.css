@@ -425,6 +425,18 @@ button:focus {
   margin-left: 40%;
 }
 
+@media only screen and (max-width: 768px) {
+  #timer {
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #timer {
+    margin-left: 20%;
+  }
+}
+
 .scoreContainer {
   font-size: 50px;
   font-size: 5rem;

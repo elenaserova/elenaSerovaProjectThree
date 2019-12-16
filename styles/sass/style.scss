@@ -154,6 +154,12 @@ button:focus {
   color: $primaryColor;
   position: relative;
   margin-left: 40%;
+  @include media(768px){
+    margin-left: 30%;
+  }
+  @include media(375px){
+    margin-left: 20%;
+  }
 }
 
 .scoreContainer {
